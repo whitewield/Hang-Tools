@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/*
+//how to play particle
+ParticleSystem t_particle =
+	PoppingParticlePoolManager.Instance.GetFromPool (Hang.PoppingParticlePool.ParticleType.Hit);
+ParticleActions.PlayParticle (t_particle, myMuzzle.position);
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Hang.PoppingParticlePool;
