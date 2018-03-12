@@ -51,73 +51,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f9e33d79fce450e8a2268be57c46f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myInputLayoutBank:
+  - {fileID: 11400000, guid: 8acbded97ef1a4204ae6567571ae8738, type: 2}
+  - {fileID: 11400000, guid: 02784ff1522064fb79cb7bbc288d4197, type: 2}
+  - {fileID: 11400000, guid: 067557cbe590e4f85a1a96954481a8df, type: 2}
+  - {fileID: 11400000, guid: f36179039b8ff40d19b9dcbd6727d645, type: 2}
+  - {fileID: 11400000, guid: 55bd769a1a43f453eb7dd5e9918791f3, type: 2}
+  - {fileID: 11400000, guid: bd9d6d3cf971c4b509ba546803ebd254, type: 2}
   useSimulator: 1
-  myJellyJoystickSimulators:
-  - myJoystickNumber: 2
-    myButtons:
-    - myJoystickButton: 0
-      myKeyCode: 32
-    - myJoystickButton: 4
-      myKeyCode: 304
-    - myJoystickButton: 5
-      myKeyCode: 106
-    - myJoystickButton: 7
-      myKeyCode: 27
-    myAxes:
-    - myJoystickAxis: 0
-      myKeyCodeNegative: 97
-      myKeyCodePositive: 100
-    - myJoystickAxis: 1
-      myKeyCodeNegative: 115
-      myKeyCodePositive: 119
-  - myJoystickNumber: 2
-    myButtons:
-    - myJoystickButton: 0
-      myKeyCode: 32
-    - myJoystickButton: 4
-      myKeyCode: 304
-    - myJoystickButton: 5
-      myKeyCode: 106
-    - myJoystickButton: 7
-      myKeyCode: 27
-    myAxes:
-    - myJoystickAxis: 0
-      myKeyCodeNegative: 97
-      myKeyCodePositive: 100
-    - myJoystickAxis: 1
-      myKeyCodeNegative: 115
-      myKeyCodePositive: 119
-  - myJoystickNumber: 2
-    myButtons:
-    - myJoystickButton: 0
-      myKeyCode: 32
-    - myJoystickButton: 4
-      myKeyCode: 304
-    - myJoystickButton: 5
-      myKeyCode: 106
-    - myJoystickButton: 7
-      myKeyCode: 27
-    myAxes:
-    - myJoystickAxis: 0
-      myKeyCodeNegative: 97
-      myKeyCodePositive: 100
-    - myJoystickAxis: 1
-      myKeyCodeNegative: 115
-      myKeyCodePositive: 119
-  - myJoystickNumber: 2
-    myButtons:
-    - myJoystickButton: 0
-      myKeyCode: 32
-    - myJoystickButton: 4
-      myKeyCode: 304
-    - myJoystickButton: 5
-      myKeyCode: 106
-    - myJoystickButton: 7
-      myKeyCode: 27
-    myAxes:
-    - myJoystickAxis: 0
-      myKeyCodeNegative: 97
-      myKeyCodePositive: 100
-    - myJoystickAxis: 1
-      myKeyCodeNegative: 115
-      myKeyCodePositive: 119
+  mySimulators:
+  - {fileID: 11400000, guid: 40a923d37edfa47d6b18e15474c54a3c, type: 2}
+  - {fileID: 11400000, guid: d9cefc92020fa4ef7a80dede79c20b18, type: 2}
