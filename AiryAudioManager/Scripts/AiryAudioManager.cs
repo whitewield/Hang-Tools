@@ -62,6 +62,15 @@ namespace Hang {
 				g_airyAudioSource.Action (AiryAudioSourceAction.Play);
 			}
 
+			public static void PlayScheduled (AiryAudioSource g_airyAudioSource, double g_startTime) {
+				if (g_airyAudioSource == null) {
+					Debug.LogError ("AiryAudioSource doesn't exist!");
+					return;
+				}
+
+				g_airyAudioSource.AudioSource.PlayScheduled (g_startTime);
+			}
+
 			public static void SetVolume (AiryAudioSource g_airyAudioSource, float g_volume) {
 				if (g_airyAudioSource == null) {
 					Debug.LogError ("AiryAudioSource doesn't exist!");
@@ -98,7 +107,7 @@ namespace Hang {
 				g_airyAudioSource.SetPitch (Random.Range (g_minPitch, g_maxPitch));
 			}
 
-			//Edit based on Matt Bock's code
+			//Edit based on Matt Boch's code
 			public static float RemapRange (float g_input, float g_inputFrom, float g_inputTo, float g_outputFrom, float g_outputTo) {
 				//need to test
 
@@ -120,6 +129,17 @@ namespace Hang {
 			private static AiryAudioManager instance = null;
 			public static AiryAudioManager Instance { get { return instance; } }
 
+			[SerializeField] AiryAudioBank myAiryAudioBank;
+			private Dictionary<string, AiryAudioData> myBank = new Dictionary<string, AiryAudioData> ();
+			private Dictionary<string, AudioMixerSnapshot> mySnapshots = new Dictionary<string, AudioMixerSnapshot> ();
+
+			[SerializeField] GameObject myPool_Prefab;
+			[SerializeField] int myPool_Size = 50;
+			private List<AiryAudioSource> myPool = new List<AiryAudioSource> ();
+
+			[SerializeField] AudioMixer myAudioMixer;
+			[SerializeField] float myAudioMixerTransitionTime = 0.5f;
+
 			void Awake () {
 				if (instance != null && instance != this) {
 					Destroy(this.gameObject);
@@ -128,7 +148,9 @@ namespace Hang {
 					instance = this;
 				}
 
-				DontDestroyOnLoad(this.gameObject);
+				if (this.transform.parent == null) {
+					DontDestroyOnLoad (this.gameObject);
+				}
 
 				// init bank
 				foreach (AiryAudioData t_data in myAiryAudioBank.GetMyBank()) {
@@ -154,22 +176,6 @@ namespace Hang {
 				for (int i = 0; i < myPool_Size; i++) {
 					myPool.Add (Instantiate (myPool_Prefab, this.transform).GetComponent<AiryAudioSource> ());
 				}
-			}
-
-			[SerializeField] AiryAudioBank myAiryAudioBank;
-			private Dictionary<string, AiryAudioData> myBank = new Dictionary<string, AiryAudioData> ();
-			private Dictionary<string, AudioMixerSnapshot> mySnapshots = new Dictionary<string, AudioMixerSnapshot> ();
-
-			[SerializeField] GameObject myPool_Prefab;
-			[SerializeField] int myPool_Size = 50;
-			private List<AiryAudioSource> myPool = new List<AiryAudioSource> ();
-
-
-			[SerializeField] AudioMixer myAudioMixer;
-			[SerializeField] float myAudioMixerTransitionTime = 0.5f;
-
-			void Start () {
-
 			}
 
 			public AiryAudioData GetAudioData (string g_dataName) {

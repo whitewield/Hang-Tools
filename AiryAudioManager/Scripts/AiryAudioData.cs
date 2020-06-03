@@ -58,6 +58,15 @@ namespace Hang {
 
 				AiryAudioActions.Play (AiryAudioManager.Instance.InitAudioSource (this), g_position);
 			}
+
+			public void PlayScheduled (double g_startTime) {
+				if (AiryAudioManager.Instance == null) {
+					Debug.LogError ("AiryAudioManager is missing!");
+					return;
+				}
+
+				AiryAudioActions.PlayScheduled (AiryAudioManager.Instance.InitAudioSource (this), g_startTime);
+			}
 		}
 	}
 }

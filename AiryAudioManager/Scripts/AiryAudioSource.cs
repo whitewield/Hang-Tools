@@ -75,6 +75,12 @@ namespace Hang {
 				SetPosition ((Vector3)g_position);
 			}
 
+			public float GetClipLength () {
+				if (myAudioSource == null || myAudioSource.clip == null)
+					return 0;
+				return myAudioSource.clip.length;
+			}
+
 			public void Action (AiryAudioSourceAction g_action) {
 				switch (g_action) {
 				case AiryAudioSourceAction.Play:
